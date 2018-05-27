@@ -1,24 +1,52 @@
-var MongoClient = require('mongodb').MongoClient;
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const app = express();
+
+//init db
+mongoose.Promise = Promise;
+mongoose.connect()
+.then(()=> {
+    console.log("mongodb://localhost:27017/AnimaliaPro")
+ },(error)=>{
+     console.log(error);
+ })
+
+app.use(bodyParser.json());
+
+app.post('/login',(req,res)=>{
+    const user = require('./domain/user');
+    const {name,password} = req.body;
+    toResp = await user.findOne({name,password});
+    if (!toResp){
+        res.header(status,301)
+        res.send("Username or password incorrect")
+    }else{
+        res.send(toResp);
+    }
+});
+
+app.listen(4444,()=>console.log("server listening on 4444"));
 
 // Connect to the db
-MongoClient.connect("mongodb://localhost:27017/AnimaliaPro", function(err, client) {
-  if(!err) {
-    console.log("We are connected");
-    var db = client.db('AnimaliaPro');
-    var collection = db.collection('user');
-    var lotsOfDocs = [{ 'name': 'test1', 'password':'1234','role':1 }, { 'name': 'test2', 'password':'1234', 'role':2 }];
+// MongoClient.connect("mongodb://localhost:27017/AnimaliaPro", function(err, client) {
+//   if(!err) {
+//     console.log("We are connected");
+//     var db = client.db('AnimaliaPro');
+//     var collection = db.collection('user');
+//     var lotsOfDocs = [{ 'name': 'test1', 'password':'1234','role':1 }, { 'name': 'test2', 'password':'1234', 'role':2 }];
 
-    collection.insert(lotsOfDocs, { w: 1 }, function (err, result) {
-        if(err){
-            console.log("error:  "+ err.message);
-        }
-     });
+//     collection.insert(lotsOfDocs, { w: 1 }, function (err, result) {
+//         if(err){
+//             console.log("error:  "+ err.message);
+//         }
+//      });
 
-    client.close();
+//     client.close();
 
 
-  }
-  else {
-      console.log(err);
-  }
-});
+//   }
+//   else {
+//       console.log(err);
+//   }
+// });
