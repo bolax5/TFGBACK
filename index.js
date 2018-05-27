@@ -26,6 +26,10 @@ app.post('/login', async (req,res)=>{
     }
 });
 
+app.get('/login', async (req,res)=>{
+    res.send("Correct")
+});
+
 app.listen(4444,()=>console.log("server listening on 4444"));
 
 // Connect to the db
