@@ -9,7 +9,7 @@ mongoose.connect()
 .then(()=> {
     console.log("mongodb://localhost:27017/AnimaliaPro")
  },(error)=>{
-     console.log(error);
+     console.log("ERROR FOUND => "+error);
  })
 
 app.use(bodyParser.json());
