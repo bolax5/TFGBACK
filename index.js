@@ -9,7 +9,14 @@ MongoClient.connect("mongodb://localhost:27017/AnimaliaPro", function(err, clien
     var doc1 = { 'name': 'test1', 'password':'1234' };
     var lotsOfDocs = [{ 'name': 'test1', 'password':'1234','role':1 }, { 'name': 'test2', 'password':'1234', 'role':2 }];
 
-    collection.insert(lotsOfDocs, { w: 1 }, function (err, result) { });
+    collection.insert(lotsOfDocs, { w: 1 }, function (err, result) {
+        if(err){
+            console.log("error:  "+ err.message);
+        }
+     });
+
+    client.close();
+
 
   }
   else {
