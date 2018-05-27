@@ -5,9 +5,9 @@ const app = express();
 
 //init db
 mongoose.Promise = Promise;
-mongoose.connect()
+mongoose.connect("mongodb://localhost:27017/AnimaliaPro")
 .then(()=> {
-    console.log("mongodb://localhost:27017/AnimaliaPro")
+    console.log("connected")
  },(error)=>{
      console.log("ERROR FOUND => "+error);
  })
