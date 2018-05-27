@@ -14,7 +14,7 @@ mongoose.connect()
 
 app.use(bodyParser.json());
 
-app.post('/login',(req,res)=>{
+app.post('/login', async (req,res)=>{
     const user = require('./domain/user');
     const {name,password} = req.body;
     toResp = await user.findOne({name,password});
