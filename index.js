@@ -13,7 +13,7 @@ mongoose.connect("mongodb://localhost:27017/AnimaliaPro")
  })
 
 app.use(bodyParser.json());
-var DEFAULT_PORT = 3000;
+var DEFAULT_PORT = 80;
 var port         = DEFAULT_PORT;
 var maybe_port = process.env.PORT;
 if( typeof maybe_port === "number" ){
