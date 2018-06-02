@@ -30,4 +30,4 @@ app.get('/login', async (req,res)=>{
     res.send("Correct")
 });
 
-app.listen(8082,'0.0.0.0',()=>console.log("server listening on 8082"));
+app.listen(8082,'0.0.0.0');
