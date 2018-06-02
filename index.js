@@ -13,6 +13,12 @@ mongoose.connect("mongodb://localhost:27017/AnimaliaPro")
  })
 
 app.use(bodyParser.json());
+var DEFAULT_PORT = 3000;
+var port         = DEFAULT_PORT;
+var maybe_port = process.env.PORT;
+if( typeof maybe_port === "number" ){
+    port = maybe_port;
+}
 
 app.get('/', async (req,res)=>{
     res.send("Correct host")
@@ -33,4 +39,4 @@ app.get('/login', async (req,res)=>{
     res.send("Correct")
 });
 
-app.listen(8082,'0.0.0.0');
+app.listen(port,"0.0.0.0", ()=>console.log("port is "+port));
