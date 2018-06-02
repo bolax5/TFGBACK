@@ -14,6 +14,9 @@ mongoose.connect("mongodb://localhost:27017/AnimaliaPro")
 
 app.use(bodyParser.json());
 
+app.get('/', async (req,res)=>{
+    res.send("Correct host")
+});
 app.post('/login', async (req,res)=>{
     const user = require('./domain/user');
     const {name,password} = req.body;
