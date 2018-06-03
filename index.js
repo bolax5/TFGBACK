@@ -26,6 +26,7 @@ app.get('/', async (req,res)=>{
     res.send("Correct host")
 });
 app.post('/login', async (req,res)=>{
+    console.log("petition recieved");
     const user = require('./domain/user');
     const {name,password} = req.body;
     toResp = await user.findOne({name,password});
