@@ -11,6 +11,7 @@ mongoose.connect("mongodb://localhost:27017/AnimaliaPro")
     console.log("connected")
  },(error)=>{
      console.log("ERROR FOUND => "+error);
+     throw("Not Connected")
  })
 
 app.use(bodyParser.json());
