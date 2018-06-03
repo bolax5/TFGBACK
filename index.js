@@ -30,9 +30,11 @@ app.post('/login', async (req,res)=>{
     const {name,password} = req.body;
     toResp = await user.findOne({name,password});
     if (!toResp){
+        console.log("!resp");
         res.header(status,402);
         res.end("Username or password incorrect");
     }else{
+        console.log("resp")
         res.end("Username or password correct");
     }
 });
