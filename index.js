@@ -12,7 +12,7 @@ mongoose.connect("mongodb://localhost:27017/AnimaliaPro")
  },(error)=>{
      console.log("ERROR FOUND => "+error);
      throw("Not Connected")
- })
+ }).catch(()=>0);
 
 app.use(bodyParser.json());
 app.use(cors({origin: '*'}));
