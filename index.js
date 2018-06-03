@@ -31,9 +31,9 @@ app.post('/login', async (req,res)=>{
     toResp = await user.findOne({name,password});
     if (!toResp){
         res.header(status,402);
-        res.send("Username or password incorrect");
+        res.end("Username or password incorrect");
     }else{
-        res.send("Username or password correct");
+        res.end("Username or password correct");
     }
 });
 
