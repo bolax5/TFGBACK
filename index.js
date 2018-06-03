@@ -31,7 +31,7 @@ app.post('/login', async (req,res)=>{
         res.header(status,402);
         res.send("Username or password incorrect");
     }else{
-        res.send(toResp);
+        res.send("Username or password correct");
     }
 });
 
