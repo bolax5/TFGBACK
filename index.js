@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors =require('cors');
 const app = express();
 
 //init db
@@ -13,6 +14,7 @@ mongoose.connect("mongodb://localhost:27017/AnimaliaPro")
  })
 
 app.use(bodyParser.json());
+app.use(cors({origin: '*'}));
 var DEFAULT_PORT = 3000;
 var port         = DEFAULT_PORT;
 var maybe_port = process.env.PORT;
