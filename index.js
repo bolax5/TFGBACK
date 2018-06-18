@@ -42,7 +42,7 @@ app.post('/login', async (req,res)=>{
 });
 
 app.get('/login', async (req,res)=>{
-    res.send("Correct")
+    res.send("trying")
 });
 
 app.listen(port,"0.0.0.0", ()=>console.log("port is "+port));
